@@ -1,0 +1,48 @@
+<!-- pages/play/play.wxml -->
+<view class="play-container">
+    <!-- 播放界面 -->
+    <swiper class="swiper-container" current="{{currentPage}}" duration="300" bindchange="swiperChange">
+        <swiper-item>
+            <view class="play-content">
+                <!-- 旋转区域 -->
+                <view class="disc-container">
+                    <image class="cover" style="transform: rotate({{rotateAngle}}deg);" src="{{currentSong.imgUrl}}" mode="aspectFill" />
+                </view>
+                <!-- 歌曲信息区域 -->
+                <view class="song-content">
+                    <!-- 歌名和歌手 -->
+                    <view class="song-meta">
+                        <text class="current-title">{{currentSong.song}}</text>
+                        <text class="current-singer">{{currentSong.singer}}</text>
+                    </view>
+                    <!-- 喜爱和评论 -->
+                    <view class="song-action">
+                        <view class="action-btn {{isLiked ? 'active':''}}" bindtap="toggleLike">
+                            <image class="action-icon" src="{{isLiked ? '../../images/play/like_active.png':'../../images/play/like.png'}}" mode="" />
+                        </view>
+                        <view class="action-btn">
+                            <image class="action-icon" src="../../images/play/comment.png" mode="" />
+                        </view>
+                    </view>
+                </view>
+                <!-- 进度条区域 -->
+                <view class="progress-container">
+                    <view class="progress-bar" bindtap="onProgressBarTap" bind:touchstart="onTouchStart" bind:touchmove="onTouchMove" bind:touchend="onTouchEnd">
+                        <view class="progress-bg">
+                            <view class="progress" style="width: {{progress}}%;"></view>
+                            <view class="progress-handle" style="left: {{progress}}%;"></view>
+                        </view>
+                    </view>
+                    <view class="time-info">
+                        <text>{{currentTime}}</text>
+                        <text>{{duration}}</text>
+                    </view>
+                </view>
+                <!-- 底部控件区 -->
+                <view class="footer"></view>
+            </view>
+        </swiper-item>
+        <!-- 歌词区域 -->
+        <swiper-item></swiper-item>
+    </swiper>
+</view>

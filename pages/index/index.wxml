@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<!-- 歌曲搜索框 -->
+<view class="search-container">
+<view class="search">
+<image src="../../images/index/search.png" mode=""/>
+<input type="text" placeholder-style="color:#cdc9c9" placeholder="搜索歌手、歌曲或专辑名"/>
+</view>
+</view>
+<!-- 轮播图 -->
+<swiper class="banner" indicator-dots="true" indicator-active-color="#b22222" autoplay="true" interval="5000" circular="true">
+<block wx:for="{{currentBanners}}" wx:key="index">
+<swiper-item>
+<image src="{{item.imageUrl}}" class="swiper-img" mode="aspectFill" lazy-load="true"/>
+</swiper-item>
+</block> 
+</swiper>
+<!-- 推荐歌单 -->
+<view class="recommend-content">
+    <view class="title">推荐歌单</view>
+    <scroll-view class="scrollView" scroll-x="true" enhanced bindscroll="handleScroll">
+        <view class="listContainer" style="padding-left: {{leftPadding}}rpx;padding-right: {{rightPadding}}rpx;">
+            <block wx:for="{{recommendList}}" wx:key="id">
+                <view class="listItem" data-id="{{item.id}}">
+                    <view class="imgItem">
+                        <image class="coverImg" src="{{item.coverImgurl}}" mode="aspectFill" lazy-load="true"/>
+                        <view class="playCount">
+                            <image class="playcountIcon" src="../../images/tabbar/playcount0.png" />
+                            <view class="text">{{item.playCount}}</view>
+                        </view>
+                        <view class="play">
+                            <image class="playIcon" src="../../images/tabbar/play.png" />
+                        </view>
+                    </view>
+                    <view class="listName">{{item.name}}</view>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+</view>
+<!-- 热门歌曲 -->
+<view class="hotsong-container">
+    <view class="title">热门歌曲</view>
+    <view class="songContent">
+        <view class="songItem"  wx:for="{{hotSongs}}" wx:key="id" bindtap="navigateToPlayer" wx:for-index="in" data-index="{{in}}">
+            <image class="songImg" src="{{item.imgUrl}}" mode="aspectFill"/>
+            <view class="songDetail">
+            <view class="songName">{{item.song}}</view>
+            <view class="singerAlbum">{{item.singer}}-{{item.album}}</view>
+            </view>
+            <view class="songPlay">
+            <image src="../../images/index/play.png" mode=""/>
+            </view>
+        </view>
+    </view>
+</view>
+
+

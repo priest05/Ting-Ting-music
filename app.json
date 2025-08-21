@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/music/music",
+    "pages/play/play"
+  ],
+  "window": {
+    "enablePullDownRefresh":true,
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "听听音乐",
+    "navigationBarBackgroundColor": "#cecece",
+    "backgroundColor": "#cecece",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#ffffff",
+    "selectedColor": "#000000",
+    "borderStyle":"white",
+    "backgroundColor": "#cecece",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "发现",
+      "iconPath": "images/tabbar/found0.png",
+      "selectedIconPath": "images/tabbar/found1.png"
+    }, {
+      "pagePath": "pages/music/music",
+      "text": "音乐",
+      "iconPath": "images/tabbar/music0.png",
+      "selectedIconPath": "images/tabbar/play0.png"
+    },{
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/tabbar/mine0.png",
+        "selectedIconPath": "images/tabbar/mine1.png"
+    }]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
