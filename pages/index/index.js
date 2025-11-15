@@ -190,6 +190,11 @@ Page({
             res.eventChannel.emit('acceptDataFromOpenerPage',{ data: objdata })
           }
         })
+    },
+    // 跳转到搜索页面
+    goToSearch:function(){
+        wx.navigateTo({
+          url: '/pages/search/search'
+        })
     }
-  
 })

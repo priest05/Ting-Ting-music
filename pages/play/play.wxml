@@ -1,12 +1,12 @@
 <!-- pages/play/play.wxml -->
 <view class="play-container">
     <!-- 播放界面 -->
-    <swiper class="swiper-container" current="{{currentPage}}" duration="300" bindchange="swiperChange">
+    <swiper class="swiper-container" current="{{currentPage}}" bindchange="swiperChange">
         <swiper-item>
             <view class="play-content">
                 <!-- 旋转区域 -->
                 <view class="disc-container">
-                    <image class="cover" style="transform: rotate({{rotateAngle}}deg);" src="{{currentSong.imgUrl}}" mode="aspectFill" />
+                    <image class="cover" src="{{currentSong.imgUrl}}" mode="aspectFill" />
                 </view>
                 <!-- 歌曲信息区域 -->
                 <view class="song-content">
@@ -27,7 +27,7 @@
                 </view>
                 <!-- 进度条区域 -->
                 <view class="progress-container">
-                    <view class="progress-bar" bindtap="onProgressBarTap" bind:touchstart="onTouchStart" bind:touchmove="onTouchMove" bind:touchend="onTouchEnd">
+                    <view class="progress-bar" catchtap="onProgressBarTap" catch:touchstart="onTouchStart" catch:touchmove="onTouchMove" catch:touchend="onTouchEnd">
                         <view class="progress-bg">
                             <view class="progress" style="width: {{progress}}%;"></view>
                             <view class="progress-handle" style="left: {{progress}}%;"></view>
@@ -39,7 +39,30 @@
                     </view>
                 </view>
                 <!-- 底部控件区 -->
-                <view class="footer"></view>
+                <view class="footer">
+                    <view class="control-bar">
+                        <!-- 播放模式 -->
+                        <view class="control-btn random-btn" bindtap="togglePlayMode">
+                            <image class="control-icon" src="{{playMode === 0 ? '../../images/play/morecycle.png' : (playMode === 1 ? '../../images/play/onecycle.png' : '../../images/play/random.png')}}" mode="aspectFit" />
+                        </view>
+                        <!-- 上一首 -->
+                        <view class="control-btn prev-btn" bindtap="playPrev">
+                            <image class="control-icon" src="../../images/play/play_pre.png" mode="aspectFit" />
+                        </view>
+                        <!-- 播放/暂停 -->
+                        <view class="control-btn play-btn" bindtap="togglePlay">
+                            <image class="control-icon play-icon" src="{{isPlaying ? '../../images/play/play.png':'../../images/play/pause.png'}}" mode="aspectFit" />
+                        </view>
+                        <!-- 下一首 -->
+                        <view class="control-btn next-btn" bindtap="playNext">
+                            <image class="control-icon" src="../../images/play/play_next.png" mode="aspectFit" />
+                        </view>
+                        <!-- 下载 -->
+                        <view class="control-btn download-btn" bindtap="downloadSong">
+                            <image class="control-icon" src="../../images/play/download.png" mode="aspectFit" />
+                        </view>
+                    </view>
+                </view>
             </view>
         </swiper-item>
         <!-- 歌词区域 -->

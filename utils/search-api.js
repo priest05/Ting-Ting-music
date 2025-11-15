@@ -1,5 +1,6 @@
 const baseUrl='http://localhost:3000'
-//搜索接口
+
+// 固定关键词搜索接口
 function getSearch(){
     return new Promise((resolve,reject)=>{
         const url=`${baseUrl}/search?keywords=唯一`
@@ -24,7 +25,32 @@ function getSearch(){
         })
     })
   }
+
+// 接受关键词的搜索接口
+function searchMusic(keyword){
+    return new Promise((resolve,reject)=>{
+        const url=`${baseUrl}/search?keywords=${encodeURIComponent(keyword)}`
+        wx.request({
+            url:url,
+            success:(res)=>{
+                if(res.statusCode!==200){
+                    reject(new Error(`请求失败，状态码：${res.statusCode}`))
+                    return
+                }
+                try{
+                    resolve(res)
+                }catch(e){
+                    reject(new Error('数据解析失败'))
+                }
+            },
+            fail:(err)=>{
+                reject(new Error(`网络错误：${err.errMsg}`))
+            }
+        })
+    })
+  }
   
   module.exports = {
-      getSearch
+      getSearch,
+      searchMusic
   }

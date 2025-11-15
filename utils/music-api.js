@@ -39,8 +39,8 @@ function getPlayUrl(songhash) {
             return
           }
           try {
-            // const songName=res.data.fileName
-            const playUrl = res.data.backupUrl
+            const playUrl = res.data.url[0]
+            console.log(playUrl)
             // 缓存策略优化
             // wx.setStorageSync(songName,playUrl)
             resolve(playUrl)

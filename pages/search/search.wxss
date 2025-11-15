@@ -1,0 +1,156 @@
+/* pages/search/search.wxss */
+.search-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* 搜索头部样式 */
+.search-header {
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-icon {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 20rpx;
+  z-index: 2;
+}
+
+.search-input {
+  flex: 1;
+  height: 70rpx;
+  background-color: #f5f5f5;
+  border-radius: 35rpx;
+  padding-left: 70rpx;
+  padding-right: 20rpx;
+  font-size: 28rpx;
+}
+
+.search-placeholder {
+  color: #999;
+}
+
+.cancel-btn {
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+  padding: 0 10rpx;
+}
+
+/* 搜索结果区域样式 */
+.search-result {
+  padding: 120rpx 30rpx 30rpx;
+}
+
+/* 历史搜索样式 */
+.history-section {
+  margin-bottom: 40rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-header text {
+  font-size: 30rpx;
+  color: #666;
+}
+
+.clear-btn {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.history-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10rpx;
+}
+
+.history-tag {
+  padding: 15rpx 30rpx;
+  background-color: #fff;
+  border-radius: 40rpx;
+  margin: 10rpx;
+  font-size: 26rpx;
+  color: #333;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 搜索结果样式 */
+.result-section {
+  margin-top: 20rpx;
+}
+
+.song-list {
+  background-color: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.song-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.song-item:last-child {
+  border-bottom: none;
+}
+
+.song-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.song-name {
+  display: block;
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-singer {
+  display: block;
+  font-size: 26rpx;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.play-btn {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+/* 无结果样式 */
+.no-result {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}

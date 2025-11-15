@@ -1,0 +1,45 @@
+<!-- pages/search/search.wxml -->
+<view class="search-container">
+  <!-- 搜索头部 -->
+  <view class="search-header">
+    <view class="search-bar">
+      <image class="search-icon" src="../../images/index/search.png" mode="aspectFit"></image>
+      <input class="search-input" placeholder="搜索音乐、歌手" placeholder-class="search-placeholder" focus="{{isFocused}}" bindinput="onInput" bindconfirm="onSearch"></input>
+      <view class="cancel-btn" bindtap="onCancel">取消</view>
+    </view>
+  </view>
+  
+  <!-- 搜索结果区域 -->
+  <view class="search-result" wx:if="{{showResult}}">
+    <block wx:if="{{searchHistory.length > 0 && !searchKeyword && !showResult}}">
+      <view class="history-section">
+        <view class="section-header">
+          <text>搜索历史</text>
+          <view class="clear-btn" bindtap="clearHistory">清除</view>
+        </view>
+        <view class="history-tags">
+          <view class="history-tag" wx:for="{{searchHistory}}" wx:key="index" bindtap="searchByHistory" data-keyword="{{item}}">{{item}}</view>
+        </view>
+      </view>
+    </block>
+    
+    <block wx:if="{{showResult}}">
+      <view class="result-section">
+        <view class="section-header">搜索结果</view>
+        <view class="song-list">
+          <view class="song-item" wx:for="{{searchResults}}" wx:key="index" bindtap="playSong" data-song="{{item}}">
+            <view class="song-info">
+              <text class="song-name">{{item.song}}</text>
+              <text class="song-singer">{{item.singer}}</text>
+            </view>
+            <image class="play-btn" src="../../images/index/play.png" mode="aspectFit"></image>
+          </view>
+        </view>
+      </view>
+    </block>
+    
+    <view class="no-result" wx:if="{{showResult && searchResults.length === 0 && searchKeyword}}">
+      <text>未找到相关内容</text>
+    </view>
+  </view>
+</view>

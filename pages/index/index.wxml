@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <!-- 歌曲搜索框 -->
 <view class="search-container">
-<view class="search">
+<view class="search" bindtap="goToSearch">
 <image src="../../images/index/search.png" mode=""/>
-<input type="text" placeholder-style="color:#cdc9c9" placeholder="搜索歌手、歌曲或专辑名"/>
+<input type="text" placeholder-style="color:#cdc9c9" placeholder="搜索歌手、歌曲或专辑名" disabled="true"/>
 </view>
 </view>
 <!-- 轮播图 -->
